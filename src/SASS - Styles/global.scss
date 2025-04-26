@@ -13,10 +13,16 @@ html {
   background-color: $light-background;
   &.light {
     background-color: $light-background;
+    --button-shadow-color: hsl(0, 0%, 10%);
+    --dropdown-background-color: hsl(0, 0%, 95%);
+    --dropdown-border-color: $secondary-blue;
     color: hsl(0, 0%, 7%);
   }
   &.dark {
     background-color: $dark-background;
+    --button-shadow-color: hsl(0, 0%, 30%);
+    --dropdown-background-color: hsl(0, 0%, 15%);
+    --dropdown-border-color: white;
     color: hsl(0, 0%, 93%);
   }
 }

@@ -1,0 +1,19 @@
+@use "variables.scss" as *;
+.converter-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .currencies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+    .menu-label-container {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      gap: 10px;
+    }
+  }
+}
