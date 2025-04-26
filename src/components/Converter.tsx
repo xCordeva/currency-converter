@@ -3,9 +3,16 @@ import "@/css/Converter.css";
 import DropdownMenu from "./DropdownMenu";
 import { useState, useEffect } from "react";
 
+type Currency = {
+  code: string;
+  country: string;
+  flag: string;
+};
+
 export default function Converter() {
-  const [fromCurrency, setFromCurrency] = useState(null);
-  const [toCurrency, setToCurrency] = useState(null);
+  const [fromCurrency, setFromCurrency] = useState<Currency | null>(null);
+  const [toCurrency, setToCurrency] = useState<Currency | null>(null);
+  const [amount, setAmount] = useState(1);
 
   // simulating setting the default value to be the user's location
   useEffect(() => {
@@ -20,6 +27,12 @@ export default function Converter() {
       flag: "https://flagcdn.com/w40/us.png",
     });
   }, []);
+
+  const handleConvert = () => {
+    console.log(amount);
+    console.log(fromCurrency.code);
+    console.log(toCurrency.code);
+  };
 
   return (
     <div className="converter-container">
@@ -40,6 +53,20 @@ export default function Converter() {
           />
         </div>
       </div>
+
+      <div className="input-container">
+        <label htmlFor="amount">Enter Amount to Convert </label>
+        <input
+          type="number"
+          id="amount"
+          value={amount}
+          onChange={(e) => setAmount(Number(e.target.value))}
+        />
+      </div>
+
+      <button className="convert-button" onClick={handleConvert}>
+        Convert
+      </button>
     </div>
   );
 }
