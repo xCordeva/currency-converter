@@ -1,0 +1,52 @@
+@use "variables.scss" as *;
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .label {
+    font-size: 22px;
+  }
+  .toggle-button {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.dark {
+      background-color: hsl(0, 0%, 20%);
+      .slider {
+        transform: translateX(30px);
+        background-color: $sunny-yellow;
+      }
+    }
+
+    .slider {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 24px;
+      height: 24px;
+      background-color: $secondary-blue;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+
+    .sun-icon {
+      left: 4px;
+      color: white;
+    }
+
+    .moon-icon {
+      position: absolute;
+      right: 4px;
+    }
+  }
+}

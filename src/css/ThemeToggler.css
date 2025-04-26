@@ -1,0 +1,47 @@
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-switch .label {
+  font-size: 22px;
+}
+.theme-switch .toggle-button {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: hsl(0, 0%, 80%);
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.theme-switch .toggle-button.dark {
+  background-color: hsl(0, 0%, 20%);
+}
+.theme-switch .toggle-button.dark .slider {
+  transform: translateX(30px);
+  background-color: #facc15;
+}
+.theme-switch .toggle-button .slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #15265b;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.theme-switch .toggle-button .sun-icon {
+  left: 4px;
+  color: white;
+}
+.theme-switch .toggle-button .moon-icon {
+  position: absolute;
+  right: 4px;
+}

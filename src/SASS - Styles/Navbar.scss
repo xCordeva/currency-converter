@@ -1,0 +1,11 @@
+@use "variables.scss" as *;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 1000;
+    color: $primary-orange;
+  }
+}

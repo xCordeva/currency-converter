@@ -1,0 +1,30 @@
+@use "variables.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  background-color: $light-background;
+  &.light {
+    background-color: $light-background;
+    color: hsl(0, 0%, 7%);
+  }
+  &.dark {
+    background-color: $dark-background;
+    color: hsl(0, 0%, 93%);
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+}
