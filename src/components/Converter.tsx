@@ -1,32 +1,16 @@
 "use client";
 import "@/css/Converter.css";
 import DropdownMenu from "./DropdownMenu";
-import { useState, useEffect } from "react";
-
-type Currency = {
-  code: string;
-  country: string;
-  flag: string;
-};
+import { useState } from "react";
+import useFromToStore from "@/stores/useFromTo";
 
 export default function Converter() {
-  const [fromCurrency, setFromCurrency] = useState<Currency | null>(null);
-  const [toCurrency, setToCurrency] = useState<Currency | null>(null);
+  // zustand states
+  const fromCurrency = useFromToStore((state) => state.fromCurrency);
+  const setFromCurrency = useFromToStore((state) => state.setFromCurrency);
+  const toCurrency = useFromToStore((state) => state.toCurrency);
+  const setToCurrency = useFromToStore((state) => state.setToCurrency);
   const [amount, setAmount] = useState(1);
-
-  // simulating setting the default value to be the user's location
-  useEffect(() => {
-    setFromCurrency({
-      code: "EGP",
-      country: "Egypt",
-      flag: "https://flagcdn.com/w40/eg.png",
-    });
-    setToCurrency({
-      code: "USD",
-      country: "United States",
-      flag: "https://flagcdn.com/w40/us.png",
-    });
-  }, []);
 
   const handleConvert = () => {
     console.log(amount);
