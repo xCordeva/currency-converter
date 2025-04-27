@@ -28,7 +28,7 @@ export default function Displayer() {
           {amount} {fromCurrency.code} to {toCurrency.code} equals
         </h1>
       </div>
-      <h1 className="converted-amount">{convertedAmount}</h1>
+      <h1 className="converted-amount">{convertedAmount.toFixed(2)}</h1>
       <p className="exchange-rate">
         1 {fromCurrency.code} = {exchangeRate} {toCurrency.code}
       </p>
