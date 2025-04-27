@@ -27,6 +27,7 @@ export default function Converter() {
           <DropdownMenu
             selectedCurrency={fromCurrency}
             onSelect={setFromCurrency}
+            excludeCurrency={toCurrency}
           />
         </div>
         <div className="menu-label-container">
@@ -34,6 +35,7 @@ export default function Converter() {
           <DropdownMenu
             selectedCurrency={toCurrency}
             onSelect={setToCurrency}
+            excludeCurrency={fromCurrency}
           />
         </div>
       </div>

@@ -7,9 +7,11 @@ import useCurrencyStore from "@/stores/useCurrencyStore";
 export default function DropdownMenu({
   selectedCurrency,
   onSelect,
+  excludeCurrency,
 }: {
   selectedCurrency: any;
   onSelect: (currency: any) => void;
+  excludeCurrency: any;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -41,6 +43,7 @@ export default function DropdownMenu({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   if (isLoading) {
     return (
       <div className="dropdown-loading">
@@ -87,31 +90,33 @@ export default function DropdownMenu({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
           >
-            {currencies.map((currency) => (
-              <motion.li
-                key={currency.code}
-                className="dropdown-item"
-                onClick={() => {
-                  onSelect(currency);
-                  setIsOpen(false);
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <img
-                  height={25}
-                  width={28}
-                  //   force coding the european flag since it doesnt exist in the json file we are fetching
-                  src={
-                    currency.flag
-                      ? currency.flag
-                      : `https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Euro_symbol.svg/500px-Euro_symbol.svg.png`
-                  }
-                  alt={currency.country + " flag"}
-                />
-                {currency.code}
-              </motion.li>
-            ))}
+            {currencies
+              .filter((currency) => currency.code !== excludeCurrency?.code)
+              .map((currency) => (
+                <motion.li
+                  key={currency.code}
+                  className="dropdown-item"
+                  onClick={() => {
+                    onSelect(currency);
+                    setIsOpen(false);
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <img
+                    height={25}
+                    width={28}
+                    //   force coding the european flag since it doesnt exist in the json file we are fetching
+                    src={
+                      currency.flag
+                        ? currency.flag
+                        : `https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Euro_symbol.svg/500px-Euro_symbol.svg.png`
+                    }
+                    alt={currency.country + " flag"}
+                  />
+                  {currency.code}
+                </motion.li>
+              ))}
           </motion.ul>
         )}
       </AnimatePresence>
