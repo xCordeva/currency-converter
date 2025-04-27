@@ -41,7 +41,7 @@ export default function Converter() {
       </div>
 
       <div className="input-container">
-        <label htmlFor="amount">Enter Amount to Convert</label>
+        <label htmlFor="amount">Enter Amount</label>
         <input
           type="number"
           id="amount"

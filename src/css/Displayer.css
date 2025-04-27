@@ -6,12 +6,23 @@
   margin: auto;
   height: 350px;
 }
+@media (max-width: 1024px) {
+  .displayer {
+    width: 90%;
+  }
+}
 .displayer .user-amount {
   align-self: flex-start;
 }
 .displayer .converted-amount {
   font-size: 10rem;
   margin: 0;
+}
+@media (max-width: 500px) {
+  .displayer .converted-amount {
+    font-size: 6rem;
+    margin: auto;
+  }
 }
 .displayer .exchange-rate {
   align-self: flex-end;

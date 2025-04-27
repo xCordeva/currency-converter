@@ -11,12 +11,24 @@
   border: 2px solid var(--converter-background-color);
   font-weight: 1000;
 }
+@media (max-width: 1024px) {
+  .converter-container {
+    width: calc(90% - 60px);
+    padding: 20px;
+  }
+}
 .converter-container .currencies {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
   gap: 50px;
+}
+@media (max-width: 550px) {
+  .converter-container .currencies {
+    gap: 30px;
+  }
 }
 .converter-container .currencies .menu-label-container {
   display: flex;

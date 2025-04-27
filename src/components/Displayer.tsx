@@ -36,7 +36,7 @@ export default function Displayer() {
     <div className="displayer">
       <div className="user-amount">
         <h1>
-          {amount} {fromCurrency.code} to {toCurrency.code} equals
+          {amount} {fromCurrency.code} to {toCurrency.code}
         </h1>
       </div>
       <h1 className="converted-amount">{convertedAmount.toFixed(2)}</h1>

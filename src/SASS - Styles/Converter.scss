@@ -11,12 +11,21 @@
   box-shadow: 10px 10px 0 var(--converter-background-color);
   border: 2px solid var(--converter-background-color);
   font-weight: 1000;
+  @media (max-width: 1024px) {
+    // removing the padding and box shadow width
+    width: calc(90% - 60px);
+    padding: 20px;
+  }
   .currencies {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
     gap: 50px;
+    @media (max-width: 550px) {
+      gap: 30px;
+    }
     .menu-label-container {
       display: flex;
       flex-direction: column;
