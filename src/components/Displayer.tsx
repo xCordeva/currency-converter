@@ -1,7 +1,6 @@
 "use client";
 import "@/css/Displayer.css";
-import useFromToStore from "@/stores/useFromTo";
-
+import useFromToStore from "@/stores/useFromToStore";
 
 export default function Displayer() {
   const fromCurrency = useFromToStore((state) => state.fromCurrency);
@@ -10,7 +9,7 @@ export default function Displayer() {
   const convertedAmount = useFromToStore((state) => state.convertedAmount);
   const exchangeRate = useFromToStore((state) => state.exchangeRate);
   const isLoading = useFromToStore((state) => state.isLoading);
-  
+
   if (isLoading) {
     return (
       <div className="displayer-loading">
