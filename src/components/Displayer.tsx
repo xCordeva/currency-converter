@@ -9,6 +9,7 @@ export default function Displayer() {
   const convertedAmount = useFromToStore((state) => state.convertedAmount);
   const exchangeRate = useFromToStore((state) => state.exchangeRate);
   const isLoading = useFromToStore((state) => state.isLoading);
+  const errorMessage = useFromToStore((state) => state.errorMessage);
 
   if (isLoading) {
     return (
@@ -17,6 +18,16 @@ export default function Displayer() {
           src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif"
           alt="loading-gif"
         />
+      </div>
+    );
+  }
+
+  if (errorMessage) {
+    return (
+      <div className="displayer-error">
+        <h2>
+          Error making the conversion, please wait a few seconds and try again.
+        </h2>
       </div>
     );
   }

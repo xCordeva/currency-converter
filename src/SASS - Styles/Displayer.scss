@@ -18,7 +18,8 @@
     color: grey;
   }
 }
-.displayer-loading {
+.displayer-loading,
+.displayer-error {
   display: flex;
   align-items: center;
   justify-content: center;

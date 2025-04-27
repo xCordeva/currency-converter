@@ -9,7 +9,12 @@ export default function Home() {
       <Navbar />
       <Displayer />
       <Converter />
-      <Chart />
+      <div className="chart">
+        <h1 className="chart-title">
+          Exchange rate history for the last 7 days.
+        </h1>
+        <Chart />
+      </div>
     </main>
   );
 }

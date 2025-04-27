@@ -13,14 +13,14 @@ interface FromToStore {
   convertedAmount: number;
   exchangeRate: number;
   isLoading: boolean;
-  errorMessage: string;
+  errorMessage: string | unknown;
   setFromCurrency: (currency: Currency) => void;
   setToCurrency: (currency: Currency) => void;
   setAmount: (amount: number) => void;
   setConvertedAmount: (convertedAmount: number) => void;
   setExchangeRate: (exchangeRate: number) => void;
   setIsLoading: (isLoading: boolean) => void;
-  setErrorMessage: (err: string) => void;
+  setErrorMessage: (err: string | unknown) => void;
 }
 
 const useFromToStore = create<FromToStore>((set) => ({
@@ -46,7 +46,7 @@ const useFromToStore = create<FromToStore>((set) => ({
   setConvertedAmount: (convertedAmount: number) => set({ convertedAmount }),
   setExchangeRate: (exchangeRate: number) => set({ exchangeRate }),
   setIsLoading: (isLoading: boolean) => set({ isLoading }),
-  setErrorMessage: (err: string) => set({ errorMessage: err }),
+  setErrorMessage: (err: string | unknown) => set({ errorMessage: err }),
 }));
 
 export default useFromToStore;

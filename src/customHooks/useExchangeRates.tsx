@@ -23,6 +23,7 @@ export const useExchangeRates = () => {
     (state) => state.setHistoryLoading
   );
   const setIsLoading = useFromToStore((state) => state.setIsLoading);
+  const setErrorMessage = useFromToStore((state) => state.setErrorMessage);
 
   const today = new Date();
   const startDate = new Date();
@@ -30,7 +31,6 @@ export const useExchangeRates = () => {
 
   const todayFormatted = formatDate(today);
   const startFormatted = formatDate(startDate);
-
 
   // fetching the last 7 days exchange rates, and using todays rate as the exchange rate to calculate conversions
   const fetchExchangeRates = async () => {
@@ -57,6 +57,7 @@ export const useExchangeRates = () => {
       }
     } catch (error) {
       console.error("Error fetching exchange rates history:", error);
+      setErrorMessage(error);
       setHistoryLoading(false);
       setIsLoading(false);
     }

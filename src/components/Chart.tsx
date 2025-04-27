@@ -30,11 +30,24 @@ const Chart = () => {
   useExchangeRates();
 
   if (historyLoading) {
-    return <div>Loading chart...</div>;
+    return (
+      <div className="chart-loading">
+        Loading chart...
+        <img
+          src="https://cdn.pixabay.com/animation/2023/11/09/03/05/03-05-45-320_512.gif"
+          alt="loading-gif"
+          width={100}
+        />
+      </div>
+    );
   }
 
   if (!ratesHistory || Object.keys(ratesHistory).length === 0) {
-    return <div>No data available</div>;
+    return (
+      <div className="chart-error">
+        <h2>Can't find any data, please try to refresh the page.</h2>
+      </div>
+    );
   }
 
   const currencyPair = `${fromCurrency.code}${toCurrency.code}`;
