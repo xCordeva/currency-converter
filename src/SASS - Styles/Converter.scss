@@ -13,7 +13,7 @@
   font-weight: 1000;
   @media (max-width: 1024px) {
     // removing the padding and box shadow width
-    width: calc(90% - 60px);
+    width: calc(100% - 60px);
     padding: 20px;
   }
   .currencies {

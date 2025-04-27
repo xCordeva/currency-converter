@@ -13,7 +13,7 @@
 }
 @media (max-width: 1024px) {
   .converter-container {
-    width: calc(90% - 60px);
+    width: calc(100% - 60px);
     padding: 20px;
   }
 }
