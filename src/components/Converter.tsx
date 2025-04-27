@@ -3,6 +3,7 @@ import "@/css/Converter.css";
 import DropdownMenu from "./DropdownMenu";
 import { useState } from "react";
 import useFromToStore from "@/stores/useFromToStore";
+import { ArrowRightLeft } from "lucide-react";
 
 export default function Converter() {
   const fromCurrency = useFromToStore((state) => state.fromCurrency);
@@ -19,6 +20,11 @@ export default function Converter() {
     setAmount(inputAmount);
   };
 
+  const handleSwap = () => {
+    setFromCurrency(toCurrency);
+    setToCurrency(fromCurrency);
+  };
+
   return (
     <div className="converter-container">
       <div className="currencies">
@@ -30,6 +36,9 @@ export default function Converter() {
             excludeCurrency={toCurrency}
           />
         </div>
+
+        <ArrowRightLeft className="swap-button" onClick={handleSwap} />
+
         <div className="menu-label-container">
           <label htmlFor="to">To</label>
           <DropdownMenu
